@@ -16,10 +16,14 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    const { response } = error;
+    try {
+      const { response } = error;
 
-    if (response.status === 401) {
-      localStorage.removeItem("ACCESS_TOKEN");
+      if (response.status === 401) {
+        localStorage.removeItem("ACCESS_TOKEN");
+      }
+    } catch (error) {
+      console.log(error);
     }
 
     throw error;

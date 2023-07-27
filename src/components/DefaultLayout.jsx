@@ -4,8 +4,9 @@ import { useStateContext } from "../Context/ContextProvider";
 
 const DefaultLayout = () => {
   const { user, token } = useStateContext();
-
+  // debugger;
   if (!token) {
+    // debugger;
     return <Navigate to={"/login"} />;
   }
 
@@ -24,6 +25,7 @@ const DefaultLayout = () => {
           <div>Header</div>
           <div>
             {user.name}
+
             <a href="#" onClick={onLogout} className="btn-logout">
               Logout
             </a>
